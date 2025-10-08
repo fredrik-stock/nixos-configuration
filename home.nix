@@ -8,15 +8,25 @@
 
     # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+    ohMyZsh = {
+      enable = true;
+      plugins = ["git" "z"];
+    };
+  };
+  programs.fzf.enable = true;
   programs.git = {
     enable = true;
     userEmail = "fredrik@eltele.no";
     userName = "Fredrik Stock";
   };
 
-  home.packages = [
-    pkgs.hello
-    pkgs.cowsay
+  home.packages = with pkgs; [
+    fzf
 
     # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
     # (pkgs.writeShellScriptBin "my-hello" ''

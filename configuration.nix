@@ -75,13 +75,15 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.fredrik = {
-    isNormalUser = true;
-    description = "Fredrik";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-    ];
+  users = {
+    defaultUserShell = pkgs.zsh;
+    users.fredrik = {
+      isNormalUser = true;
+      description = "Fredrik";
+      extraGroups = [ "networkmanager" "wheel" ];
+      packages = with pkgs; [
+      ];
+    };
   };
 
   # Enable automatic login for the user.
@@ -90,6 +92,7 @@
 
   # Install firefox.
   programs.firefox.enable = true;
+  programs.zsh.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
