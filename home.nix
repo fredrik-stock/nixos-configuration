@@ -13,9 +13,13 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    ohMyZsh = {
+    oh-my-zsh = {
       enable = true;
-      plugins = ["git" "z"];
+      plugins = [
+        "git" 
+        "z"
+      ];
+      theme = "robbyrussell";
     };
   };
   programs.fzf.enable = true;
@@ -37,6 +41,7 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
+    ".config/waybar/config.jsonc".source = dotfiles/waybar.jsonc;
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
