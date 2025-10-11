@@ -118,6 +118,9 @@
     font-awesome
 
     mesa
+
+# todo: kun dersom vi er på kvm+qemu
+    spice-vdagent
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
